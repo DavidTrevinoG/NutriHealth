@@ -19,7 +19,7 @@
                 <a class="nav-link <?php echo((isset($_GET['controller']) && $_GET['controller'] == 'PeliculasController' || !isset($_GET['controller']))? 'active' : '') ?>" href="./index.php?controller=PeliculasController&action=index">Dietas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo(isset($_GET['controller']) && $_GET['controller'] == 'TipoEjerciciosController' ? 'active' : '') ?>" href="./index.php?controller=TipoEjerciciosController&action=index">Tipos de Ejercicio</a>
+            <a class="nav-link <?php echo((isset($_GET['controller']) && $_GET['controller'] == 'TipoEjerciciosController' || !isset($_GET['controller']))? 'active' : '') ?>" href="./index.php?controller=TipoEjerciciosController&action=index">Tipos de ejercicio</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link <?php echo(isset($_GET['controller']) && $_GET['controller'] == 'ClientesController' ? 'active' : '') ?>" href="./index.php?controller=ClientesController&action=index">Foro</a>
@@ -31,8 +31,8 @@
             if (isset($_GET['controller']) && isset($_GET['action'])) {
                 $controller = $_GET['controller'];
                 $action = $_GET['action'];
-
-                require_once "controller/$controller.php";
+ 
+                require_once "controller/administrador/$controller.php";
                 $controller = new $controller();
                 $controller->$action();
             }

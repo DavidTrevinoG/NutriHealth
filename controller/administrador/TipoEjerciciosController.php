@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../../model/administrador/TiposEjercicio.php';
+require_once '././././model/administrador/TiposEjercicio.php';
 
 
 class TipoEjerciciosController{
@@ -43,7 +43,7 @@ class TipoEjerciciosController{
             $id_tipo = $_GET['id_tipo'];
             $tipoejercicio = $this->tiposejercicioModel->obtenerTipoPorId($id_tipo);
             if ($tipoejercicio) {
-                include './view/administrador/tipo_ejercicios/index.php';
+                include './view/administrador/tipo_ejercicios/editar.php';
             } else {
                 echo "No se encontró el tipo de ejercicio con id $id_tipo.";
             }
