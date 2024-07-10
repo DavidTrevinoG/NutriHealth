@@ -1,13 +1,13 @@
-<?php 
+<?php
 
 include_once 'conexion.php';
 
-if(isset($_POST['login'])){
+if (isset($_POST['login'])) {
 
     $username = $_POST['usuario'];
     $password = $_POST['contrasena'];
 
-    $stmt = $conn->prepare("SELECT * FROM admin WHERE usuario = ? AND contrasena = ?");
+    $stmt = conexion->prepare("SELECT * FROM admin WHERE usuario = ? AND contrasena = ?");
     $stmt->bind_param("ss", $username, $password);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -26,6 +26,4 @@ if(isset($_POST['login'])){
         // Usuario no encontrado, mostrar mensaje de error
         echo "Nombre de usuario o contraseña incorrectos";
     }
-} 
-
-?>
+}
