@@ -17,8 +17,8 @@
                 <td><?php echo $tipoejercicio['nombre_tipo'];?></td>
                 <td>
                     <a href="./index.php?controller=TipoEjerciciosController&action=editar&id_tipo=<?php echo $tipoejercicio['id_tipo']; ?>" class="btn btn-warning">Editar</a>
-                    <a href="./index.php?controller=TipoEjerciciosController&action=eliminar&id_tipo=<?php echo $tipoejercicio['id_tipo']; ?>" class="btn btn-danger">Eliminar</a>
-                </td>
+                    <a href="./index.php?controller=TipoEjerciciosController&action=eliminar&id_tipo=<?php echo $tipoejercicio['id_tipo']; ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este tipo de ejercicio? Esta acción no se puede deshacer.');">Eliminar</a>
+                    </td>
             </tr>
             <?php endforeach;?>
         </tbody>

@@ -10,13 +10,21 @@ class TipoEjercicio{
         $this->conexion = new Conexion();
     }
 
-
+    
     public function obtenerTipos(){
         $query = "SELECT * FROM tipo_ejercicio";
         $resultado = $this->conexion->conectar()->query($query);
 
         return $resultado->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function obtenerEjerciciosPorTipo($id_tipo) {
+        $query = "SELECT * FROM ejercicios WHERE id_tipo = $id_tipo";
+        $resultado = $this->conexion->conectar()->query($query);
+
+        return $resultado->fetch_all(MYSQLI_ASSOC);
+    }
+
 
 
     //insertar un tipo de ejercicio

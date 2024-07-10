@@ -50,8 +50,20 @@ class TipoEjerciciosController{
         }
     }
 
-    public function eliminar(){
+    public function eliminar() {
         $id_tipo = $_GET['id_tipo'];
+
+        // Verificar si hay ejercicios asociados a este tipo de ejercicio
+        $ejerciciosAsociados = $this->tiposejercicioModel->obtenerEjerciciosPorTipo($id_tipo);
+
+        if (!empty($ejerciciosAsociados)) {
+            // Mostrar un mensaje de error o redirigir con un mensaje de error
+            echo "No se puede eliminar este tipo de ejercicio porque tiene ejercicios asociados.";
+            // Puedes redirigir a la página anterior o mostrar un mensaje de error
+            exit;
+        }
+
+        // Si no hay ejercicios asociados, procede con la eliminación del tipo de ejercicio
         $this->tiposejercicioModel->eliminarTipo($id_tipo);
         header("Location: ./index.php?controller=TipoEjerciciosController&action=index");
     }
