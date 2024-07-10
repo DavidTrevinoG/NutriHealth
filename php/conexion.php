@@ -1,9 +1,9 @@
 <?php
 
-class Conexion {
+class conexion {
     private $host = "localhost";
-    private $user = "root";
-    private $password = ""; 
+    private $user = "admin";
+    private $password = "42e8e5be462585ef9f18539f62615e5969be86708373e8c4"; 
     private $database = "nutrihealth";
 
     public function conectar() {
@@ -11,6 +11,9 @@ class Conexion {
 
         if ($conexion->connect_error) {
             die("Error de conexión: " . $conexion->connect_error);
+        }
+        else{
+            echo "Conexión exitosa";
         }
 
         return $conexion;
