@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
 $dbname = 'nutrihealth';
-$username = 'admin';
-$password = '42e8e5be462585ef9f18539f62615e5969be86708373e8c4';
+$username = 'root';
+$password = 'root';
 
 // Crear conexión
 $conn = new mysqli($host, $username, $password, $dbname);
@@ -13,5 +13,3 @@ if ($conn->connect_error) {
 } else {
     echo "jaló";
 }
-
-?>

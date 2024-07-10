@@ -1,13 +1,13 @@
 <?php
 
-include_once 'conexion.php';
+include_once 'conexionprueba.php';
 
 if (isset($_POST['login'])) {
 
     $username = $_POST['usuario'];
     $password = $_POST['contrasena'];
 
-    $stmt = conexion->prepare("SELECT * FROM admin WHERE usuario = ? AND contrasena = ?");
+    $stmt = $conn->prepare("SELECT * FROM admin WHERE usuario = ? AND contrasena = ?");
     $stmt->bind_param("ss", $username, $password);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -20,7 +20,7 @@ if (isset($_POST['login'])) {
         session_start();
         $_SESSION['username'] = $username;
         // Redirigir a la página de inicio
-        header("Location: ../view/administrador/index.php");
+        header("Location: ../index.php");
         exit();
     } else {
         // Usuario no encontrado, mostrar mensaje de error
