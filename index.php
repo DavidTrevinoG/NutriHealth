@@ -32,7 +32,7 @@
                 $controller = $_GET['controller'];
                 $action = $_GET['action'];
 
-                require_once "controllers/$controller.php";
+                require_once "controllers/administrador/$controller.php";
                 
                 $controller = new $controller();
 
