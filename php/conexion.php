@@ -2,7 +2,7 @@
 
 class conexion {
     private $host = "localhost";
-    private $user = "admin";
+    private $user = "   ";
     private $password = "42e8e5be462585ef9f18539f62615e5969be86708373e8c4"; 
     private $database = "nutrihealth";
 
