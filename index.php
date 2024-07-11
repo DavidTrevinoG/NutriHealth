@@ -40,7 +40,7 @@
                 $controller = new $controllerName();
                 $controller->$actionName();
             } else {
-                echo "Error: El archivo del controlador no existe ueridjsxi.";
+                echo "Error: El archivo del controlador no existe.";
             }
         } else {
             // Si no se especifica un controlador o acción, mostrar algo por defecto

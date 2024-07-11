@@ -1,13 +1,13 @@
 <?php
 
-require_once __DIR__ . '../../../php/conexion.php';
+require_once __DIR__ . '/../conexion.php';
 
 class TipoEjercicio{
 
     private $conexion;
 
     public function __construct(){
-        $this->conexion = new Conexion();
+        $this->conexion = new conexion();
     }
 
     
