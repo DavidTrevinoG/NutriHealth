@@ -23,7 +23,7 @@ class ejercicios_controller {
             $nombre_ejercicio = $_POST['nombre_ejercicio'];
             $duracion = $_POST['duracion'];
             $descripcion = $_POST['descripcion'];
-            $tipo_id = $_POST['id_tipo'];
+            $id_tipo = $_POST['id_tipo'];
             $this->ejerciciosModel->insertarEjercicios($nombre_ejercicio, $duracion, $descripcion, $id_tipo);
             header("Location: ./index.php?controller=ejercicios_controller&action=index");
         } else {

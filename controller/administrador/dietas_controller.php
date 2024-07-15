@@ -15,6 +15,35 @@ class dietas_controller {
         include './view/administrador/dietas/index.php';
 
     }
+    public function editar(){
+
+    }
+    public function eliminar(){
+
+    }
+    public function colaciones() {
+        //bbtener el ID de la dieta desde la URL
+        if(isset($_GET['id'])) {
+            //obtener las colaciones de la dieta
+            $id_dieta = $_GET['id'];
+            //obtener las colaciones de la dieta
+            $colaciones_dieta = $this->dietaModel->obtenerColacionesDieta($id_dieta);
+            //obtener los ingredientes de las colaciones
+            include './view/administrador/dietas/colaciones.php';
+        } else {
+            header("Location: ./index.php?controller=dietas_controller&action=index");
+        }
+    }
+    public function ingredientes() {
+        if(isset($_GET['id'])) {
+            $id_colacion = $_GET['id'];
+            $ingredientes = $this->dietaModel->obtenerIngredientesColacion($id_colacion);
+            include './view/administrador/dietas/ingredientes.php';
+        } else {
+            header("Location: ./index.php?controller=dietas_controller&action=index");
+        }
+    }
+    
 
     public function vista_alta() {
         include './view/administrador/dietas/alta.php';

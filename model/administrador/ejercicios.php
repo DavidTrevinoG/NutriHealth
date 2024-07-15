@@ -1,13 +1,14 @@
 <?php
 
-require_once __DIR__ . '../../../php/conexion.php';
+require_once __DIR__ . '/../conexion.php';
 
 class ejercicio{
     private $conexion;
 
     public function __construct(){
-        $this->conexion = new Conexion();
+        $this->conexion = new conexion();
     }
+
 
 
     //Obtener ejercicios
@@ -31,10 +32,10 @@ class ejercicio{
 
     //Insertar ejercicio
     public function insertarEjercicios($nombre_ejercicio, $duracion, $descripcion, $id_tipo){
-        $query = "INSERT INTO ejercicios(nombre_ejercicio, duracion, descripcion, id_tipo) VALUES 
-        ('$nombre_ejercicio', '$duracion', '$descripcion', '$id_tipo')";
-        
-        return $resultado->fetch_all(MYSQLI_ASSOC);
+        $query = "INSERT INTO ejercicios(nombre_ejercicio, duracion, descripcion, id_tipo) VALUES  ('$nombre_ejercicio', '$duracion', '$descripcion', '$id_tipo')";
+                 $resultado = $this->conexion->conectar()->query($query);
+
+                 return $this->conexion->conectar()->query($query);
 
     }
 

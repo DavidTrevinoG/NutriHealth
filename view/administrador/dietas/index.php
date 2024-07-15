@@ -12,6 +12,7 @@
                 <th>Colación 3</th>
                 <th>Colación 4</th>
                 <th>Colación 5</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -20,11 +21,18 @@
                     <td><?php echo $dieta['id_dieta']; ?>
                     
                     </td>
-                    <td><?php echo $dieta['colacion1']; ?></td>
+                    <td><?php echo $dieta['colacion1']; ?><br>
+                </td>
                     <td><?php echo $dieta['colacion2']; ?></td>
                     <td><?php echo $dieta['colacion3']; ?></td>
                     <td><?php echo $dieta['colacion4']; ?></td>
                     <td><?php echo $dieta['colacion5']; ?></td>
+                    <td>
+                    <a href="./index.php?controller=dietas_controller&action=colaciones&id=<?php echo $dieta['id_dieta']; ?>" class="btn btn-info">Colaciones</a>
+                    <a href="./index.php?controller=dietas_controller&action=editar&id=<?php echo $dieta['id_dieta']; ?>" class="btn btn-warning">Editar</a>
+                    <a href="./index.php?controller=dietas_controller&action=eliminar&id=<?php echo $dieta['id_dieta']; ?>" class="btn btn-danger">Eliminar</a>
+                </td>
+                    
                 </tr>
             <?php endforeach; ?>
         </tbody>

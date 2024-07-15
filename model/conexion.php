@@ -12,9 +12,9 @@ class conexion
         $conexion = new mysqli($this->host, $this->user, $this->password, $this->database);
 
         if ($conexion->connect_error) {
-            die("Error de conexión: " . $conexion->connect_error);
+            die(": " . $conexion->connect_error);
         } else {
-            echo "Conexión exitosa";
+            echo "";
         }
         return $conexion;
     }
