@@ -1,7 +1,7 @@
 <div class="container mt-4" id="secon">
     <h2>Editar ejercicio</h2>
 
-    <form method="post" action="./index.php?controller=ejercicios_controller&action=editar">
+    <form method="post" action="./index.php?controller=ejercicios_controller&action=editar" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $ejercicio['id']; ?>">
         <div class="form-group">
             <label for="nombre_ejercicio">Nombre del ejercicio</label>
@@ -25,6 +25,13 @@
                 <?php endforeach; ?>
             </select>
         </div>
+        <div class="form-group">
+            <label for="image">Imagen actual:</label><br>
+            <img src="<?php echo $ejercicio['image']; ?>" alt="Imagen del ejercicio" style="max-width: 200px;"><br>
+            <label for="image">Nueva imagen:</label>
+            <input type="file" name="image" id="image" class="form-control">
+        </div>
         <button type="submit" class="btn btn-success">Guardar cambios</button>
     </form>
 </div>
+c

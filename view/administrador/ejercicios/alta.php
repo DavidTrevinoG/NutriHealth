@@ -1,7 +1,7 @@
 <div class="container mt-4" id="secon">
     <h2>Alta de ejercicio</h2>
 
-    <form method="post" action="./index.php?controller=ejercicios_controller&action=alta">
+    <form method="post" action="./index.php?controller=ejercicios_controller&action=alta" enctype="multipart/form-data">
         <div class="form-group">
             <label for="nombre_ejercicio">Nombre del ejercicio</label>
             <input type="text" name="nombre_ejercicio" class="form-control" required>
@@ -21,6 +21,10 @@
                 <option value="<?php echo $tipo['id_tipo']; ?>"><?php echo $tipo['nombre_tipo']; ?></option>
                 <?php endforeach; ?>
             </select>
+        </div>
+        <div class="form-group">
+            <label for="image">Imagen:</label>
+            <input type="file" name="image" id="image" class="form-control">
         </div>
         <button type="submit" class="btn btn-success">Guardar</button>
     </form>
