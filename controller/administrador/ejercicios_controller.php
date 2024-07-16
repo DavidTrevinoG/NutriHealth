@@ -4,7 +4,7 @@ require_once '././././model/administrador/ejercicios.php';
 
 class ejercicios_controller {
 
-    private $ejerciciosModel,$tiposejercicio;
+    private $ejerciciosModel;
 
     public function __construct(){
         $this->ejerciciosModel = new ejercicio();
@@ -17,20 +17,33 @@ class ejercicios_controller {
         include './view/administrador/ejercicios/index.php';
     }
 
-    // Dar de alta un ejercicio
     public function alta(){
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nombre_ejercicio = $_POST['nombre_ejercicio'];
             $duracion = $_POST['duracion'];
             $descripcion = $_POST['descripcion'];
             $id_tipo = $_POST['id_tipo'];
-            $this->ejerciciosModel->insertarEjercicios($nombre_ejercicio, $duracion, $descripcion, $id_tipo);
+    
+            // Manejar la carga de la imagen
+            $image = null;
+            if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+                $nombreArchivo = basename($_FILES['image']['name']);
+                $rutaDestino = './imagen/ejercicios/' . $nombreArchivo;
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $rutaDestino)) {
+                    $image = $rutaDestino;
+                }
+            }
+    
+            $this->ejerciciosModel->insertarEjercicios($nombre_ejercicio, $duracion, $descripcion, $id_tipo, $image);
             header("Location: ./index.php?controller=ejercicios_controller&action=index");
         } else {
             $tiposejercicio = $this->ejerciciosModel->obtenerTipos();
             include './view/administrador/ejercicios/alta.php';
         }
     }
+    
+    
+    
 
     // Editar el ejercicio
     public function editar(){
@@ -40,7 +53,24 @@ class ejercicios_controller {
             $duracion = $_POST['duracion'];
             $descripcion = $_POST['descripcion'];
             $id_tipo = $_POST['id_tipo'];
-            $this->ejerciciosModel->actualizarEjercicio($id, $nombre_ejercicio, $duracion, $descripcion, $id_tipo);
+    
+            // Manejar la carga de la imagen
+            $image = null;
+            if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+                $nombreArchivo = basename($_FILES['image']['name']);
+                $rutaDestino = './imagen/ejercicios/' . $nombreArchivo;
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $rutaDestino)) {
+                    $image = $rutaDestino;
+                }
+            }
+    
+            // Obtener la imagen actual si no se subió una nueva
+            if (!$image) {
+                $ejercicio = $this->ejerciciosModel->obtenerEjercicioPorId($id);
+                $image = $ejercicio['image'];
+            }
+    
+            $this->ejerciciosModel->actualizarEjercicio($id, $nombre_ejercicio, $duracion, $descripcion, $id_tipo, $image);
             header("Location: ./index.php?controller=ejercicios_controller&action=index");
             exit();
         } else {
@@ -50,6 +80,8 @@ class ejercicios_controller {
             include './view/administrador/ejercicios/editar.php';
         }
     }
+    
+    
 
     // Eliminar ejercicio
     public function eliminar(){

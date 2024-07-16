@@ -140,6 +140,7 @@ DROP TABLE IF EXISTS `ejercicios`;
 CREATE TABLE IF NOT EXISTS `ejercicios` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nombre_ejercicio` varchar(255) NOT NULL,
+  `imagen` varchar(255) DEFAULT NULL,
   `duracion` varchar(100) DEFAULT NULL,
   `descripcion` text,
   `id_tipo` int DEFAULT NULL,
