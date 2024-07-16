@@ -3,9 +3,9 @@
 class conexion
 {
     private $host = "localhost";
-    private $user = "root";
-    private $password = "";
-    private $database = "nutrihealth";
+    private $user = "admin";
+    private $password = "667163f3391b041101167c5b4e8f9ba43748e1bb6f5c03f0";
+    private $database = "nutriHealth";
 
     public function conectar()
     {
