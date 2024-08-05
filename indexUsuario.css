@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Estilos generales para el body */
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+  }
+header {
+	width: 100%; /* Asegura que el header ocupe todo el ancho */
+	padding: 2rem 2rem; /* Espaciado interno */
+	box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+	background-color: #181717; /* Fondo negro */
+	color: #FFFFFF; /* Texto blanco */
+	display: flex; /* Usa flexbox para el contenido */
+	justify-content: space-between; /* Espacia los elementos del header */
+	align-items: center; /* Alinea verticalmente los elementos */
+	position: fixed; /* Fija el header en la parte superior */
+	top: 0; /* Alinea el header en la parte superior del viewport */
+	left: 0; /* Alinea el header a la izquierda del viewport */
+  }
+  
+  
+  header a {
+	color: #FFFFFF; /* Texto blanco para los enlaces */
+	text-decoration: none; /* Elimina el subrayado */
+	margin-right: 1rem; /* Espaciado entre los enlaces */
+  }
+  
+  header nav {
+	display: flex; /* Alinea los enlaces horizontalmente */
+  }
+  
+  header a.active {
+	font-weight: bold; /* Destacar el enlace activo */
+  }
+  
+  header a:hover {
+	color: #CCCCCC; /* Color gris claro para el hover */
+  }
+  
+  
+  section {
+	width: 100vw; /* Asegura que la sección ocupe el 100% del ancho del viewport */
+	margin: 0; /* Elimina cualquier margen adicional */
+	padding: 0 2rem; /* Ajusta el padding horizontal si es necesario */
+	box-sizing: border-box; /* Incluye el padding y el borde en el cálculo del ancho */
+  }
+
+  /* Asegura que el contenedor principal ocupe el 100% del ancho */
+.container, .wrapper {
+	width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho */
+	padding: 0; /* Elimina cualquier padding adicional */
+	margin: 0; /* Elimina cualquier margen adicional */
+  }
+  
+  
+  /* Contenedores internos dentro del section */
+.max-w-full {
+	max-width: 100%;
+  }
+  
+  .py-16 {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+  }
+  
+  .px-4 {
+	padding-left: 1rem;
+	padding-right: 1rem;
+  }
+  
+  .md\:px-8 {
+	padding-left: 2rem;
+	padding-right: 2rem;
+  }
+  
+  .mt-8 {
+	margin-top: 2rem;
+  }
+  
+  .md\:mt-0 {
+	margin-top: 0;
+  }
+  
+  
+  /* Ajustes específicos para el texto y los botones */
+  .bg-custom-green {
+	background-color: #BDFFC7;
+  }
+  .bg-custom-azul {
+    background-color: #02BDB0;
+    }
+  
+  .bg-custom-light-green {
+      background-color: #9AD52B;
+      }
+  .bg-custom-light-green2 {
+        background-color: #BDFFC7;
+        }
+            
+  .text-primary-foreground {
+	color: #FFFFFF;
+  }
+  
+  .text-muted-foreground {
+	color: #6B7280;
+  }
+  
+  .shadow {
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rounded-md {
+	border-radius: 0.375rem;
+  }
+  
+  .py-16 {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+  }
+  
+  .px-4 {
+	padding-left: 1rem;
+	padding-right: 1rem;
+  }
+  
+  .md\:px-8 {
+	padding-left: 2rem;
+	padding-right: 2rem;
+  }
+  
+  .mt-8 {
+	margin-top: 2rem;
+  }
+  
+  .md\:mt-0 {
+	margin-top: 0;
+  }
+  
+  .inline-flex {
+	display: inline-flex;
+  }
+  
+  .items-center {
+	align-items: center;
+  }
+  
+  .justify-center {
+	justify-content: center;
+  }
+  
+  .flex {
+	display: flex;
+  }
+  
+  .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+	--space-y-reverse: 0;
+	margin-top: calc(1rem * var(--space-y-reverse));
+	margin-bottom: calc(1rem * (1 - var(--space-y-reverse)));
+  }
+  
+  .transition-colors {
+	transition-property: background-color, border-color, color, fill, stroke;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+  }
+  
+  .focus\:outline-none:focus {
+	outline: none;
+  }
+  
+  .focus\:ring-2:focus {
+	box-shadow: 0 0 0 2px rgba(0, 197, 183, 0.5);
+  }
+  
+  .focus\:ring-custom-light-green:focus {
+	box-shadow: 0 0 0 2px rgba(0, 197, 183, 0.5);
+  }
+  
+  .focus\:ring-offset-2:focus {
+	box-shadow: 0 0 0 2px rgba(0, 197, 183, 0.5);
+  }
+  

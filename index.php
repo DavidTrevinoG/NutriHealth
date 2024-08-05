@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,6 +32,7 @@
 
 
         <?php
+
         if (isset($_GET['controller']) && isset($_GET['action'])) {
             $controllerName = $_GET['controller'];
             $actionName = $_GET['action'];
