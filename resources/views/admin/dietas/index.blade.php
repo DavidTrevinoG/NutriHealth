@@ -42,9 +42,6 @@
                 <td class="px-6 py-4">{{ $dieta->colacion4 }}</td>
                 <td class="px-6 py-4">{{ $dieta->colacion5 }}</td>
                 <td class="px-6 py-4">
-                    <a href="{{ route('dietas.colaciones', $dieta->id) }}" class="text-blue-600 hover:underline">Colaciones</a>
-                    <a href="{{ route('dietas.edit', $dieta->id) }}" class="text-yellow-600 hover:underline">Editar</a>
-                    <a href="{{ route('dietas.destroy', $dieta->id) }}" class="text-red-600 hover:underline">Eliminar</a>
                 </td>
             </tr>
             @endforeach
@@ -67,7 +64,7 @@
             <tr class="border-b">
                 <td class="px-6 py-4">{{ $colacion->id }}</td>
                 <td class="px-6 py-4">{{ $colacion->nombre_colacion }}</td>
-                <td class="px-6 py-4"><img src="{{ asset('imagen/dietas/' . $colacion->imagen) }}" width="50"></td>
+                <td class="px-6 py-4"><img src="{{ asset('images/dietas/' . $colacion->imagen) }}" width="50"></td>
                 <td class="px-6 py-4">{{ $colacion->calorias }}</td>
             </tr>
             @endforeach

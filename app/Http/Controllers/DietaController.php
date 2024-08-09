@@ -39,6 +39,14 @@ class DietaController extends Controller
         return view('admin.dietas.create');
 
     }
+    public function edit()
+    {
+
+    }
+    public function colaciones()
+    {
+
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -106,16 +114,8 @@ class DietaController extends Controller
     public function show(string $id)
     {
         //
+ 
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      */
