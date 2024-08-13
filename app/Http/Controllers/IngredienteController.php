@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ejercicio;
+use App\Models\Dieta;
+use App\Models\Colacion;
+use App\Models\Ingrediente;
 class IngredienteController extends Controller
 {
     /**
@@ -11,7 +14,21 @@ class IngredienteController extends Controller
      */
     public function index()
     {
-         return view('admin.ingredientes.index');
+        // Obtener todas las dietas
+        $dietas = Dieta::all();
+
+        // Obtener todas las colaciones
+        $colaciones = Colacion::all();
+
+        // Obtener todos los ingredientes
+        $ingredientes = Ingrediente::all();
+
+        // Pasar los datos a la vista
+        return view('admin.ingredientes.index', [
+            'dietas' => $dietas,
+            'colaciones' => $colaciones,
+            'ingredientes' => $ingredientes
+        ]);
     }
 
     /**

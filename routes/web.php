@@ -41,6 +41,9 @@ Route::delete('/dietas/{id}', [DietasController::class, 'destroy'])->name('dieta
 
 // Ruta para mostrar las colaciones de una dieta específica
 Route::get('/dietas/{id}/colaciones', [DietasController::class, 'colaciones'])->name('dietas.colaciones');
+Route::get('/admin/dietas/{id}/eliminar', [DietaController::class, 'destroy'])->name('admin.dietas.destroy');
+Route::get('/admin/dietas/{id}/ver', [DietaController::class, 'show'])->name('admin.dietas.show');
+Route::get('/admin/colaciones/{id}/ver', [ColacionController::class, 'show'])->name('admin.colaciones.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -63,6 +66,9 @@ Route::middleware('auth')->group(function () {
         // Ruta para eliminar una dieta
         Route::delete('/admin/dietas/{id}', [DietasController::class, 'destroy'])->name('admin.dietas.destroy');
         // Ruta para mostrar las colaciones de una dieta específica
+        Route::get('/admin/colaciones', [ColacionController::class, 'index'])->name('admin.colaciones.index');
+        Route::get('/admin/ingredientes', [IngredienteController::class, 'index'])->name('admin.ingredientes.index');
+        // Ruta para crear una nueva dieta
         Route::get('/admin/ejercicios', [EjercicioController::class, 'index'])->name('admin.ejercicios.index');
         Route::get('/admin/tipo-ejercicio', [TipoEjercicioController::class, 'index'])->name('admin.tipo-ejercicio.index');
         Route::get('/admin/colaciones', [ColacionController::class, 'index'])->name('admin.colaciones.index');
