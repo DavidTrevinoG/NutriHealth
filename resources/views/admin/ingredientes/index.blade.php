@@ -14,10 +14,11 @@
                 <div class="mt-8 bg-white shadow sm:rounded-lg p-4">
                     <h3 class="text-xl font-semibold text-center mb-4">Ingredientes</h3>
                     <div class="overflow-x-auto">
-                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 custom-border">
+                        <table
+                            class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 custom-border">
                             <thead class="text-xs text-gray-700 uppercase custom-thead-bg custom-border text-center">
                                 <tr class="custom-border">
-                                    <th scope="col" class="px-6 py-3 custom-border text-center">ID</th>
+
                                     <th scope="col" class="px-6 py-3 custom-border text-center">Nombre</th>
                                     <th scope="col" class="px-6 py-3 custom-border text-center">Cantidad</th>
                                     <th scope="col" class="px-6 py-3 custom-border text-center">ID Colación</th>
@@ -25,12 +26,15 @@
                             </thead>
                             <tbody>
                                 @foreach ($ingredientes as $ingrediente)
-                                <tr class="border-b">
-                                    <td class="px-6 py-4 whitespace-nowrap custom-border text-center">{{ $ingrediente->id }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap custom-border text-center">{{ $ingrediente->nombre_ingrediente }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap custom-border text-center">{{ $ingrediente->cantidad }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap custom-border text-center">{{ $ingrediente->id_colacion }}</td>
-                                </tr>
+                                    <tr class="border-b">
+
+                                        <td class="px-6 py-4 whitespace-nowrap custom-border text-center">
+                                            {{ $ingrediente->nombre_ingrediente }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap custom-border text-center">
+                                            {{ $ingrediente->cantidad }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap custom-border text-center">
+                                            {{ $ingrediente->id_colacion }}</td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>

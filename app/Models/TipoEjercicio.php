@@ -13,6 +13,9 @@ class TipoEjercicio extends Model
 
     protected $primaryKey = 'id_tipo';
 
+    public $timestamps = true;
+
+
     protected $fillable = [
         'nombre_tipo',
     ];

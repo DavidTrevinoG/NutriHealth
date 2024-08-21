@@ -67,18 +67,40 @@ class ColacionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $colacion = Colacion::findOrFail($id);
+        $ingredientes = Ingrediente::where('id_colacion', $id)->get();
+        
+        return view('admin.colaciones.edit', compact('colacion', 'ingredientes'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    
+    
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'ingredientes.*.nombre' => 'required|string|max:255',
+            'ingredientes.*.cantidad' => 'required|string|max:255',
+        ]);
+    
+        $ingredientes = $request->input('ingredientes');
+        
+        foreach ($ingredientes as $ingredienteId => $data) {
+            $ingrediente = Ingrediente::find($ingredienteId);
+            if ($ingrediente) {
+                $ingrediente->update([
+                    'nombre_ingrediente' => $data['nombre'],
+                    'cantidad' => $data['cantidad'],
+                ]);
+            }
+        }
+    
+        return redirect()->route('colaciones.index')->with('success', 'Ingredientes actualizados con éxito');
     }
+    
+    
+    
+    
 
     /**
      * Remove the specified resource from storage.

@@ -23,7 +23,6 @@
                                 <th scope="col" class="px-6 py-3 custom-border text-center">Nombre</th>
                                 <th scope="col" class="px-6 py-3 custom-border text-center">Imagen</th>
                                 
-                                <th scope="col" class="px-6 py-3 custom-border text-center">Calorías</th>
                                 <th scope="col" class="px-6 py-3 custom-border text-center">Ver Ingredientes</th>
                             </tr>
                         </thead>
@@ -34,9 +33,10 @@
                                 <td class="px-6 py-4 whitespace-nowrap custom-border text-center">{{ $colacion->nombre_colacion }}</td>
                                                                 <td class="px-6 py-4 whitespace-nowrap custom-border text-center"><img src="{{ asset( $colacion->imagen) }}" width="80"></td>
 
-                                <td class="px-6 py-4 whitespace-nowrap custom-border text-center">{{ $colacion->calorias }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap custom-border text-center">
                                     <a href="{{ route('admin.colaciones.show', $colacion->id) }}" class="btn btn-sm btn-info text-white">Ver Ingredientes</a>
+                                    <a href="{{ route('admin.colaciones.edit', $colacion->id) }}" class="btn btn-warning  btn-sm  text-white">Editar Ingredientes</a>
+
                                 </td>
                             </tr>
                             @endforeach

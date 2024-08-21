@@ -16,7 +16,11 @@ class Ejercicio extends Model
         'duracion',
         'descripcion',
         'id_tipo',
+        'imagen',
+        'dificultad',
     ];
+
+    public $timestamps = true;
 
     // Relación muchos a uno con TipoEjercicio
     public function tipoEjercicio()

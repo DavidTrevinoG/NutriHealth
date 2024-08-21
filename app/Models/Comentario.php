@@ -9,9 +9,9 @@ class Comentario extends Model
 {
     use HasFactory;
 
-    protected $table = 'comentario';
+    protected $table = 'comentario';  // Define la tabla correspondiente
 
-    protected $primaryKey = 'id_comentario';
+    protected $primaryKey = 'id_comentario';  // Define la clave primaria
 
     protected $fillable = [
         'id_publicacion',
@@ -19,15 +19,18 @@ class Comentario extends Model
         'id_usuario',
     ];
 
-    // Relación uno a muchos con ComentarioDeComentario
-    public function comentarioDeComentarios()
+    public function publicacion()
+    {
+        return $this->belongsTo(Publicacion::class, 'id_publicacion');
+    }
+
+    public function comentariosDeComentario()
     {
         return $this->hasMany(ComentarioDeComentario::class, 'id_comentario');
     }
 
-    // Relación muchos a uno con Publicacion
-    public function publicacion()
+    public function usuario()
     {
-        return $this->belongsTo(Publicacion::class, 'id_publicacion');
+        return $this->belongsTo(User::class, 'id_usuario');  // Suponiendo que tienes un modelo de usuario
     }
 }

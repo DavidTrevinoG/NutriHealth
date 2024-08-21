@@ -10,11 +10,13 @@ class Colacion extends Model
     use HasFactory;
 
     protected $table = 'colaciones';
+    protected $primaryKey = 'id';
+    public $timestamps = true;
+
 
     protected $fillable = [
         'nombre_colacion',
         'imagen',
-        'calorias',
     ];
 
     // Relación uno a muchos con Ingredientes
@@ -22,14 +24,5 @@ class Colacion extends Model
     {
         return $this->hasMany(Ingrediente::class, 'id_colacion');
     }
-
-    // Relación muchos a muchos con Dietas
-    public function dietas()
-    {
-        return $this->belongsToMany(Dieta::class, 'dietas', 'colacion1', 'id_dieta')
-                    ->orWhere('colacion2')
-                    ->orWhere('colacion3')
-                    ->orWhere('colacion4')
-                    ->orWhere('colacion5');
-    }
+   
 }

@@ -8,6 +8,10 @@
    <!-- mobile metas -->
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+           <title>{{ config('app.name', 'NutriHealth') }}</title>
+
+               <link rel="icon" href="{{ asset('images/logo_no back.png') }}" type="image/x-icon">
+
    <!-- site metas -->
    <title>NutriHealth</title>
    <meta name="keywords" content="">
@@ -32,10 +36,10 @@
 </head>
 
 <body>
-   <!-- header section start -->
+   <!-- header SECCIÓN start -->
    <div class="header_section">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-         <div class="logo"><a href="nutri_index/index.html"><img src="images/logo_no back.png" width="100"></a></div>
+         <div class="logo"><a href=""><img src="images/logo_no back.png" width="100"></a></div>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
          </button>
@@ -64,30 +68,12 @@
                         @endif
                     @endauth
             @endif
-            <!--   <li class="nav-item">
-                  <a class="nav-link" href="nutri_index/health.html">Health</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="nutri_index/medicine.html">Medicine</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="nutri_index/news.html">News</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="nutri_index/client.html">Client</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="nutri_index/contact.html">Contact Us</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="nutri_index/#"><img src="nutri_index/images/search-icon.png"></a>
-               </li>
-               -->
+     
             </ul>
          </div>
       </nav>
-      <!-- header section end -->
-      <!-- banner section start -->
+      <!-- header SECCIÓN end -->
+      <!-- banner SECCIÓN start -->
       <div id="main_slider" class="carousel slide" data-ride="carousel">
          <div class="carousel-inner">
             <div class="carousel-item active">
@@ -141,7 +127,7 @@
                            </div>
                         </div>
                         <div class="col-md-6">
-                           <div class="image_1"><img src="images/index/icons/excercise.png"></div>
+                           <div class="image_1"><img src="images/index/icons/excercise.png" style="width: 200px;"></div>
                         </div>
                      </div>
                   </div>
@@ -151,8 +137,8 @@
         
       </div>
    </div>
-   <!-- banner section end -->
-   <!-- health section start -->
+   <!-- banner SECCIÓN end -->
+   <!-- health SECCIÓN start -->
    <div class="health_section layout_padding">
       <div class="container">
          <h1 class="health_taital">Acerca de Nosotros</h1>
@@ -186,8 +172,8 @@ En NutriHealth, creemos que una vida saludable es la base para alcanzar el biene
          </div>
       </div>
    </div>
-   <!-- health section end -->
-   <!-- knowledge section end -->
+   <!-- health SECCIÓN end -->
+   <!-- knowledge SECCIÓN end -->
    <div class="knowledge_section layout_padding">
       <div class="container">
          <div class="knowledge_main">
@@ -204,8 +190,8 @@ En NutriHealth, creemos que una vida saludable es la base para alcanzar el biene
          </div>
       </div>
    </div>
-   <!-- knowledge section end -->
-   <!-- news section start -->
+   <!-- knowledge SECCIÓN end -->
+   <!-- news SECCIÓN start -->
    <div class="news_section layout_padding">
       <div class="container">
          <h1 class="health_taital">Características</h1>
@@ -237,9 +223,9 @@ alcanzar tus objetivos de salud y fitness.</p>
          <div class="getquote_bt"><a href="#">Inicio <span><img src="nutri_index/images/right-arrow.png"></span></a></div>
       </div>
    </div>
-   <!-- news section end -->
+   <!-- news SECCIÓN end -->
 
-   <!-- client section start -->
+   <!-- client SECCIÓN start -->
    <div class="client_section layout_padding">
       <div id="my_slider" class="carousel slide" data-ride="carousel">
          <div class="carousel-inner">
@@ -303,8 +289,8 @@ alcanzar tus objetivos de salud y fitness.</p>
          </a>
       </div>
    </div>
-   <!-- client section end -->
-   <!-- footer section start -->
+   <!-- client SECCIÓN end -->
+   <!-- footer SECCIÓN start -->
 <div class="footer_section layout_padding">
    <div class="container">
       <div class="row">
@@ -362,14 +348,14 @@ alcanzar tus objetivos de salud y fitness.</p>
    </div>
 </div>
 
-   <!-- footer section end -->
-   <!-- copyright section start -->
+   <!-- footer SECCIÓN end -->
+   <!-- copyright SECCIÓN start -->
    <div class="copyright_section">
       <div class="container">
          <p class="copyright_text">2024 All Rights Reserved. Diseñado por  Team2</p>
       </div>
    </div>
-   <!-- copyright section end -->
+   <!-- copyright SECCIÓN end -->
    <!-- Javascript files-->
    <script src="nutri_index/js/jquery.min.js"></script>
    <script src="nutri_index/js/popper.min.js"></script>

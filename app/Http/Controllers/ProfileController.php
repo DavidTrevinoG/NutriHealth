@@ -24,7 +24,8 @@ class ProfileController extends Controller
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
-            if ($userType === 'admin' && $user->is_admin) {
+
+            if ($user->is_admin == 1) {
                 return redirect()->intended('admin/dashboard');
             }
             return redirect()->intended('dashboard');
@@ -50,16 +51,66 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $validatedData = $request->validated();
+        $user = $request->user();
+    
+        // Actualizar nombre y correo electrónico si se proporcionan
+        if (isset($validatedData['nombre'])) {
+            $user->nombre = $validatedData['nombre'];
+        }
+    
+        if (isset($validatedData['email'])) {
+            $user->email = $validatedData['email'];
+            if ($user->isDirty('email')) {
+                $user->email_verified_at = null;
+            }
         }
 
-        $request->user()->save();
+        if ($request->hasFile('profile_photo')) {
 
+             // Procesar imagen
+             $imagen = $request->file("profile_photo");
+    
+             // Generar un nombre único para la imagen
+             $imageName = uniqid() . '.' . $imagen->getClientOriginalExtension();
+             $imagen->move(public_path('images/foto_perfil'), $imageName);
+     
+             // Agregar la ruta de la imagen al validatedData
+             $imagenPath = 'images/foto_perfil/' . $imageName;
+
+             $user->profile_photo = $imagenPath;
+        }
+    
+        // Actualizar peso, calorías, estatura, edad, y sexo si se proporcionan
+        if (isset($validatedData['peso'])) {
+            $user->peso = $validatedData['peso'];
+        }
+    
+        if (isset($validatedData['calorias'])) {
+            $user->calorias = $validatedData['calorias'];
+        }
+    
+        if (isset($validatedData['estatura'])) {
+            $user->estatura = $validatedData['estatura'];
+        }
+    
+        if (isset($validatedData['edad'])) {
+            $user->edad = $validatedData['edad'];
+        }
+    
+        if (isset($validatedData['sexo'])) {
+            $user->sexo = $validatedData['sexo'];
+        }
+
+
+    
+        // Guardar los cambios
+        $user->save();
+    
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
+    
+
 
     /**
      * Delete the user's account.

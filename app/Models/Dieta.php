@@ -10,7 +10,6 @@ class Dieta extends Model
     use HasFactory;
 
     protected $table = 'dietas';
-
     protected $primaryKey = 'id_dieta';
 
     protected $fillable = [
@@ -19,31 +18,33 @@ class Dieta extends Model
         'colacion3',
         'colacion4',
         'colacion5',
+        'calorias',
     ];
-
-    // Relación muchos a uno con Colacion
     public function colacion1()
     {
         return $this->belongsTo(Colacion::class, 'colacion1');
     }
-
+    
     public function colacion2()
     {
         return $this->belongsTo(Colacion::class, 'colacion2');
     }
-
+    
     public function colacion3()
     {
         return $this->belongsTo(Colacion::class, 'colacion3');
     }
-
+    
     public function colacion4()
     {
         return $this->belongsTo(Colacion::class, 'colacion4');
     }
-
+    
     public function colacion5()
     {
         return $this->belongsTo(Colacion::class, 'colacion5');
     }
+    
 }
+
+
